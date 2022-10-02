@@ -1,0 +1,12 @@
+.movieslider {
+  margin: 0 30px;
+  margin-top: 50px;
+}
+
+.movies {
+  margin-left: 80px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  border: 2px solid rgb(0, 0, 0);
+  
+}
