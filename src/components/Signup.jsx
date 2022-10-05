@@ -2,7 +2,9 @@ import React, { useState } from "react";
 // import PropTypes from "prop-types";
 import "./Signup.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 export default function Signup() {
+  const navigate = useNavigate();
   const [email, setemail] = useState();
   const [password, setPassword] = useState();
   const [loading, setLoading] = useState(false);
@@ -30,6 +32,11 @@ export default function Signup() {
       });
   };
 
+  function Custom() {
+    handleSubmit();
+    navigate("/Navbar");
+  }
+
   return (
     <div className="login-wrapper">
       <h1>Sign up</h1>
@@ -49,7 +56,7 @@ export default function Signup() {
           <button
             type="submit"
             className="btn btn-primary mt-3"
-            onClick={handleSubmit}
+            onClick={Custom}
             disabled={loading}
           >
             Sign up

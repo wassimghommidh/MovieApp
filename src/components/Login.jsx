@@ -1,13 +1,18 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import "./Login.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
+// import Navbar from "./Navbar";
 export default function Login() {
   const [email, setemail] = useState();
   const [password, setPassword] = useState();
   const [loading, setLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [data, setData] = useState(null);
+
+  const navigate = useNavigate();
 
   const handleSubmit = () => {
     setLoading(true);
@@ -20,6 +25,12 @@ export default function Login() {
       .post("http://localhost:5000/user/signInUser", data)
       .then((res) => {
         setData(res.data);
+        console.log(res.data, "hello");
+        if (res.data === "welcome") {
+          navigate("/Navbar");
+        } else {
+          alert("username or password is incorrect!");
+        }
         setemail("");
         setPassword("");
         setLoading(false);
@@ -53,6 +64,13 @@ export default function Login() {
             disabled={loading}
           >
             Login
+          </button>
+          <button
+            type="submit"
+            className="btn btn-primary mt-3"
+            onClick={() => navigate("/Signup")}
+          >
+            Sign up
           </button>
         </div>
       </form>
