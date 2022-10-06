@@ -71,6 +71,7 @@ import React from "react";
 import logo from "../photos/logo.jpg";
 import "./Navbar.css";
 import { useNavigate } from "react-router-dom";
+import Slidermovie from "./Slidermovie.jsx";
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -128,6 +129,9 @@ export default function Navbar() {
             <li onClick={() => navigate("/Login")}>Logout</li>
           </ul>
         </nav>
+      </div>
+      <div>
+        <Slidermovie />
       </div>
     </>
   );

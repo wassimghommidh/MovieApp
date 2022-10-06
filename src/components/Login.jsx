@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-// import PropTypes from "prop-types";
 import "./Login.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-// import Navbar from "./Navbar";
 export default function Login() {
   const [email, setemail] = useState();
   const [password, setPassword] = useState();
