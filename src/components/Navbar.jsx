@@ -78,7 +78,7 @@ export default function Navbar() {
   return (
     <>
       <div class="container">
-        <nav>
+        <nav className="nav">
           <span class="nav-toggle" id="js-nav-toggle">
             <i class="fas fa-bars"></i>
           </span>
@@ -126,7 +126,7 @@ export default function Navbar() {
           <ul id="js-menu">
             {/* <li>SignUp</li>
           <li>Login</li> */}
-            <li onClick={() => navigate("/Login")}>Logout</li>
+            <li  id="logout" onClick={() => navigate("/Login")}>Logout</li>
           </ul>
         </nav>
       </div>

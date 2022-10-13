@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import "./Login.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Input from "@mui/material/Input";
+import Box from "@mui/material/Box";
 
 export default function Login() {
+  const ariaLabel = { "aria-label": "description" };
   const [email, setemail] = useState();
   const [password, setPassword] = useState();
   const [loading, setLoading] = useState(false);
@@ -40,38 +43,61 @@ export default function Login() {
   };
 
   return (
-    <div className="login-wrapper">
-      <h1>Log In</h1>
-      <form>
-        <label>
-          <p>Email</p>
-          <input type="text" onChange={(e) => setemail(e.target.value)} />
-        </label>
-        <label>
-          <p>Password</p>
-          <input
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </label>
-        <div>
-          <button
-            type="submit"
-            className="btn btn-primary mt-3"
-            onClick={handleSubmit}
-            disabled={loading}
-          >
-            Login
-          </button>
-          <button
-            type="submit"
-            className="btn btn-primary mt-3"
-            onClick={() => navigate("/Signup")}
-          >
-            Sign up
-          </button>
-        </div>
-      </form>
-    </div>
+    // <div className="login-wrapper">
+    //   <h1>Log In</h1>
+    //   <form>
+    //     <label>
+    //       <p>Email</p>
+    //       {/* <input type="text" onChange={(e) => setemail(e.target.value)} /> */}
+    //       <Input defaultValue="Hello world" inputProps={ariaLabel} />
+    //     </label>
+    //     <label>
+    //       <p>Password</p>
+    //       <input
+    //         type="password"
+    //         onChange={(e) => setPassword(e.target.value)}
+    //       />
+    //     </label>
+    //     <div>
+    //       <button
+    //         type="submit"
+    //         className="btn btn-primary mt-3"
+    //         onClick={handleSubmit}
+    //         disabled={loading}
+    //       >
+    //         Login
+    //       </button>
+    //       <button
+    //         type="submit"
+    //         className="btn btn-primary mt-3"
+    //         onClick={() => navigate("/Signup")}
+    //       >
+    //         Sign up
+    //       </button>
+    //     </div>
+    //   </form>
+    // </div>
+
+    <Box
+      className="login-wrapper"
+      component="form"
+      sx={{
+        "& > :not(style)": { m: 1 },
+      }}
+      noValidate
+      autoComplete="off"
+    >
+      <Input
+        defaultValue="Login"
+        color="warning"
+        inputProps={ariaLabel}
+        onChange={(e) => setemail(e.target.value)}
+      />
+      <Input
+        defaultValue="SignUp"
+        inputProps={ariaLabel}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+    </Box>
   );
 }

@@ -1,3 +1,6 @@
+.nav {
+  background: rgb(0, 0, 0);
+}
 .dropdown {
   display: inline-block;
   position: relative;
@@ -36,9 +39,11 @@
   margin-left: 6px;
 }
 
-.menu{
+.menu {
   margin-left: 3px;
   display: flex;
-  
 }
-  
+
+#logout {
+  color: white;
+}

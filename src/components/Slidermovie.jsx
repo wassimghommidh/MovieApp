@@ -47,6 +47,8 @@ import axios from "axios";
 // import MO1 from "../photos/MO1.jpg";
 import MO2 from "../photos/MO2.jpg";
 
+import "./Test.scss";
+
 export default function Slidermovie() {
   const settings = {
     dots: true,
@@ -71,8 +73,19 @@ export default function Slidermovie() {
         <Slider {...settings}>
           {userList?.map((x) => (
             <div>
-              <img className="movies" src={x.image} alt="horse" width={1200} />
-              <li>{x.movie_name}</li>
+              <img className="movies" src={x.image} alt="horse" width={800} />
+              {/* <li>{x.movie_name}</li> */}
+              <div class="card__info">
+                <h1 class="card__title">{x.movie_name}</h1>
+
+                <p class="card__slug">{x.description}</p>
+
+                <button class="card__btn" value="Watch trailer">
+                  Watch trailer
+                </button>
+
+                <div class="card__rating">8.2</div>
+              </div>
             </div>
           ))}
         </Slider>
